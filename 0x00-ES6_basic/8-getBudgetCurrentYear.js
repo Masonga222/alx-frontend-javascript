@@ -1,8 +1,12 @@
-export default function appendToEachArrayValue(array, appendString) {
-  const arrayEnd = [];
-  for (const idx of array) {
-    arrayEnd.push(`${appendString}${idx}`);
-  }
+function getCurrentYear() {
+  const date = new Date();
+  return date.getFullYear();
+}
 
-  return arrayEnd;
+export default function getBudgetForCurrentYear(income, gdp, capita) {
+  return {
+    [`income-${getCurrentYear()}`]: income,
+    [`gdp-${getCurrentYear()}`]: gdp,
+    [`capita-${getCurrentYear()}`]: capita,
+  };
 }
